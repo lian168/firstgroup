@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>HelloWorld</display-name>
+  
+  <!-- 全局配置参数 -->
+  <context-param>
+  	<param-name>JDBC_DRIVER</param-name>
+  	<param-value>com.mysql.Driver</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>JDBC_URL</param-name>
+  	<param-value>jdbc://192.168.10.111:3306/mydb</param-value>
+  </context-param>
+  
+  <!-- 到配置文件中注册Servlet -->
+  <servlet>
+  	<servlet-name>AServlet</servlet-name>
+  	<servlet-class>com.demo.AServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>BServlet</servlet-name>
+  	<servlet-class>com.demo.BServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CServlet</servlet-name>
+  	<servlet-class>com.demo.CServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>EmpServlet</servlet-name>
+    <servlet-class>com.test.EmpServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DServlet</servlet-name>
+    <servlet-class>com.demo.DServlet</servlet-class>
+    <!--  load-on-startup 设置Servlet随着容器的启动而启动  值越小优先级越高-->
+    <load-on-startup>1</load-on-startup>
+	<init-param>
+		<param-name>USERNAME</param-name>
+		<param-value>admin</param-value>
+	</init-param>
+	<init-param>
+		<param-name>PASSWORD</param-name>
+		<param-value>123456</param-value>
+	</init-param> 
+  </servlet>
+  <servlet>
+    <servlet-name>EServlet</servlet-name>
+    <servlet-class>com.demo.EServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FServlet</servlet-name>
+    <servlet-class>com.demo.FServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddEmpServlet</servlet-name>
+    <servlet-class>com.test.AddEmpServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+  
+  <!-- servlet-name:要与上面的声明的名字要一致 
+  		url-pattern:Servlet的请求地址
+  		http://服务器地址:端口号/项目名/请求地址
+  -->
+  <servlet-mapping>
+  	<servlet-name>AServlet</servlet-name>
+  	<url-pattern>/AServlet.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BServlet</servlet-name>
+  	<url-pattern>/BServlet.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CServlet</servlet-name>
+  	<url-pattern>/CServlet.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EmpServlet</servlet-name>
+    <url-pattern>/empServlet.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DServlet</servlet-name>
+    <url-pattern>/DServlet.do</url-pattern>
+  </servlet-mapping>
+  <!-- 
+  	url-pattern:
+  		/xxx.do  访问地址 http://localhost:8080/项目名/xxx.do
+  		/* 访问地址 http://localhost:8080/项目名/随便
+  		/hello/* 访问地址 http://localhost:8080/项目名/hello/随便
+  
+  		*这个通配符只能位于最后
+   -->
+  <servlet-mapping>
+    <servlet-name>EServlet</servlet-name>
+    <url-pattern>/hello/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FServlet</servlet-name>
+    <url-pattern>/FServlet.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddEmpServlet</servlet-name>
+    <url-pattern>/AddEmpServlet.do</url-pattern>
+  </servlet-mapping>
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/404.html</location>
+  </error-page>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/500.html</location>
+  </error-page>
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

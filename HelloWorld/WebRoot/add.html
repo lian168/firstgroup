@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>添加员工</title>
+<script language="javascript" type="text/javascript" src="/HelloWorld/js/calendar/WdatePicker.js"></script>
+<script language="javascript" type="text/javascript" src="/HelloWorld/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("form").submit(checkFrm);
+	});
+	
+	function checkFrm()
+	{
+		if($('#ename').val() == '')
+		{
+			alert('ename必填');
+			return false;
+		}
+		if($('#sal').val() == '')
+		{
+			alert('sal必填');
+			return false;
+		}
+		if(isNaN($('#sal').val()))
+		{
+			alert('sal必须是数字');
+			return false;
+		}
+		return true;
+	}
+</script>
+</head>
+<body>
+	<h2>添加员工</h2>
+	<form action="/HelloWorld/AddEmpServlet.do" method="post">
+		姓名:<input type="text" id="ename" name="ename"/>*<br/>
+		职位:<select name="job">
+			<option value="CLERK">CLERK</option>
+			<option value="MANAGER">MANAGER</option>
+			<option value="SALESMAN">SALESMAN</option>
+			<option value="ANALYST">ANALYST</option>
+			<option value="PRESIDENT">PRESIDENT</option>
+			</select><br/>
+		日期:<input type="text" name="hiredate" onclick="WdatePicker()"  class="Wdate" autocomplete="off"/><br/>
+		薪水:<input type="text" id="sal" name="sal"/>*<br/>
+		部门:<select name="deptno">
+			<option value="10">ACCOUNTING</option>
+			<option value="20">RESEARCH</option>
+			<option value="30">SALES</option>
+			<option value="40">OPERATIONS</option>
+			</select><br/>
+		<input type="submit"/>
+	</form>
+</body>
+</html>

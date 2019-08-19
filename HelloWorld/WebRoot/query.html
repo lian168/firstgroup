@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>添加员工</title>
+</head>
+<body>
+	<h2>查询           <a href='/HelloWorld/add.html'>添加</a></h2>
+	<form action="/HelloWorld/empServlet.do" method="POST">
+		姓名:<input type="text" name="ename"/><br/>
+		职位:<select name="job">
+			<option value="">-----</option>
+			<option value="CLERK">CLERK</option>
+			<option value="MANAGER">MANAGER</option>
+			<option value="SALESMAN">SALESMAN</option>
+			<option value="ANALYST">ANALYST</option>
+			<option value="PRESIDENT">PRESIDENT</option>
+			</select><br/>
+		<input type="submit"/>
+	</form>
+</body>
+</html>

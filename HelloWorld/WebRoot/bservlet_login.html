@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>bservlet_login.html</title>
+    <meta name="content-type" content="text/html; charset=gbk">
+  </head>
+  
+  <body>
+  	<!-- 
+  	form   action:是请求地址
+  		   method:是请求方式  get/post
+  		   
+  	表单提交时，表单控件的name属性的值就是key，控件的value属性的值就是 内容，它会以  key--- >value 的形式提交到服务器
+  	服务器根据key得到value
+  	 -->
+    <form action="/HelloWorld/BServlet.do" method="get">
+      <table>
+        <tr>
+          <td>用户名:</td>
+          <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+          <td>密码:</td>
+          <td><input type="password" name="password"></td>
+        </tr> 
+        <tr>
+          <td colspan="2"><input type="submit"></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
